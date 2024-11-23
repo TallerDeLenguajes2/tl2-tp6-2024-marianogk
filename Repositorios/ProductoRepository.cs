@@ -2,7 +2,7 @@ using Microsoft.Data.Sqlite;
 using System;
 using System.Collections.Generic;
 
-public class ProductoRepository : IRepository
+public class ProductoRepository : IRepositoryP
 {
     private readonly string cadenaConexion;
 
@@ -113,8 +113,11 @@ public class ProductoRepository : IRepository
         }
 
     }
+
+
 }
-public interface IRepository
+
+public interface IRepositoryP
 {
     void Insert(Producto producto);
     void Update(Producto producto, int idProducto);
