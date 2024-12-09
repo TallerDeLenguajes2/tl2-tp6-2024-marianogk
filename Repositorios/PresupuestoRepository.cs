@@ -109,6 +109,24 @@ public class PresupuestoRepository : IRepositoryR
         }
 
     }
+
+    public void AgregarProductoAPresupuesto(int idPresupuesto, Producto producto, int cantidad)
+    {
+        var queryString = @"INSERT INTO PresupuestoDetalle (idPresupuesto, idProducto, Cantidad) 
+                        VALUES (@idPresupuesto, @idProducto, @Cantidad);";
+
+        using (SqliteConnection connection = new SqliteConnection(cadenaConexion))
+        {
+            SqliteCommand command = new SqliteCommand(queryString, connection);
+            command.Parameters.AddWithValue("@idPresupuesto", idPresupuesto);
+            command.Parameters.AddWithValue("@idProducto", producto.IdProducto);
+            command.Parameters.AddWithValue("@Cantidad", cantidad);
+
+            connection.Open();
+            command.ExecuteNonQuery();
+        }
+    }
+
 }
 public interface IRepositoryR
 {
@@ -117,4 +135,5 @@ public interface IRepositoryR
     List<Presupuesto> ListarPresupuestos();
     Presupuesto FindById(int idPresupuesto);
     void Delete(int idPresupuesto);
+    public void AgregarProductoAPresupuesto(int idPresupuesto, Producto producto, int cantidad);
 }

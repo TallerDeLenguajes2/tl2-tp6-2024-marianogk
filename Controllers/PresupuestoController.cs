@@ -54,6 +54,28 @@ public class PresupuestoController : ControllerBase
         return NoContent();
     }
 
+    [HttpPost("{idPresupuesto}/Producto")]
+    public ActionResult AgregarProductoAPresupuesto(int idPresupuesto, [FromBody] Producto productoDto)
+    {
+        if (productoDto == null) return BadRequest("Los datos del producto son inválidos.");
 
+        var presupuesto = _presupuestoRepository.FindById(idPresupuesto);
+        if (presupuesto == null) return NotFound($"No se encontró el presupuesto con ID {idPresupuesto}.");
+
+        // Suponemos que la cantidad es siempre 1 por defecto. 
+        int cantidad = 1;
+
+        _presupuestoRepository.AgregarProductoAPresupuesto(idPresupuesto, productoDto, cantidad);
+        return Ok($"Producto con ID {productoDto.IdProducto} agregado al presupuesto {idPresupuesto}.");
+    }
+
+    [HttpGet("{idPresupuesto}/Detalles")]
+    public ActionResult VerPresupuestoConProductos(int idPresupuesto)
+    {
+        var presupuesto = _presupuestoRepository.FindById(idPresupuesto);
+        if (presupuesto == null) return NotFound($"No se encontró el presupuesto con ID {idPresupuesto}.");
+
+        return Ok(presupuesto);
+    }
 
 }
