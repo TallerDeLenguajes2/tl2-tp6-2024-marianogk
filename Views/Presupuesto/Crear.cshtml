@@ -1,0 +1,16 @@
+@model Presupuesto
+
+@{
+    ViewData["Title"] = "Crear Presupuesto";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form asp-action="Crear" method="post">
+    <div class="form-group">
+        <label for="NombreDestinatario">Nombre Destinatario</label>
+        <input type="text" class="form-control" id="NombreDestinatario" name="NombreDestinatario" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Crear</button>
+</form>

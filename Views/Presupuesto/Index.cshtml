@@ -1,0 +1,32 @@
+@model List<Presupuesto>
+
+@{
+    ViewData["Title"] = "Lista de Presupuestos";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nombre Destinatario</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var presupuesto in Model)
+        {
+            <tr>
+                <td>@presupuesto.IdPresupuesto</td>
+                <td>@presupuesto.NombreDestinatario</td>
+                <td>
+                    <a href="@Url.Action("Editar", "Presupuesto", new { idPresupuesto = presupuesto.IdPresupuesto })">Editar</a> |
+                    <a href="@Url.Action("Eliminar", "Presupuesto", new { idPresupuesto = presupuesto.IdPresupuesto })">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="@Url.Action("Crear", "Presupuesto")" class="btn btn-primary">Crear Presupuesto</a>
