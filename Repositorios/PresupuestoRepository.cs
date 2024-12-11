@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class PresupuestoRepository : IRepositoryR
 {
-    private readonly string cadenaConexion;
+    private readonly string cadenaConexion= "Data Source=db/Tienda.db";
 
     public PresupuestoRepository(string connectionString)
     {
@@ -21,7 +21,6 @@ public class PresupuestoRepository : IRepositoryR
 
             connection.Open();
             command.ExecuteNonQuery();
-            // connection.Close();
         }
     }
 
@@ -37,7 +36,6 @@ public class PresupuestoRepository : IRepositoryR
 
             connection.Open();
             command.ExecuteNonQuery();
-            // connection.Close();
         }
     }
     public List<Presupuesto> ListarPresupuestos()
@@ -62,7 +60,6 @@ public class PresupuestoRepository : IRepositoryR
 
                 }
             }
-            // connection.Close();
         }
         return presupuestos;
     }
@@ -88,7 +85,6 @@ public class PresupuestoRepository : IRepositoryR
                     return presupuesto;
                 }
             }
-            // connection.Close();
         }
         return null;
     }
@@ -105,7 +101,6 @@ public class PresupuestoRepository : IRepositoryR
 
             connection.Open();
             command.ExecuteNonQuery();
-            // connection.Close();
         }
 
     }

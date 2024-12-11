@@ -1,10 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
-// using tl2_tp6_2024_marianogk.Models;
 
 [ApiController]
-[Route("api/[controller]")]
+[Route("Presupuesto")]
 
 public class PresupuestoController : Controller
 {
