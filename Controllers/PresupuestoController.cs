@@ -2,8 +2,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
 
-[ApiController]
-[Route("Presupuesto")]
+// [ApiController]
+// [Route("Presupuesto")]
 
 public class PresupuestoController : Controller
 {
@@ -79,7 +79,7 @@ public class PresupuestoController : Controller
 
     // get agregar producto
     [HttpGet("{idPresupuesto}/Producto")]
-    public ActionResult AgregarProducto(int idPresupuesto)
+    public ActionResult<Presupuesto> AgregarProducto(int idPresupuesto)
     {
         var presupuesto = _presupuestoRepository.FindById(idPresupuesto);
         if (presupuesto == null)
@@ -93,7 +93,7 @@ public class PresupuestoController : Controller
 
     // post agregar producto
     [HttpPost("{idPresupuesto}/Producto")]
-    public ActionResult AgregarProducto(int idPresupuesto, int idProducto, int cantidad)
+    public ActionResult<Presupuesto> AgregarProducto(int idPresupuesto, int idProducto, int cantidad)
     {
         var presupuesto = _presupuestoRepository.FindById(idPresupuesto);
         var producto = _productoRepository.FindById(idProducto);

@@ -1,0 +1,34 @@
+@model List<Producto>
+
+@{
+    ViewData["Title"] = "Lista de Productos";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Descripción</th>
+            <th>Precio</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var producto in Model)
+        {
+            <tr>
+                <td>@producto.IdProducto</td>
+                <td>@producto.Descripcion</td>
+                <td>@producto.Precio.ToString("C")</td>
+                <td>
+                    <a href="@Url.Action("Editar", "Producto", new { idProducto = producto.IdProducto })">Editar</a> |
+                    <a href="@Url.Action("Eliminar", "Producto", new { idProducto = producto.IdProducto })">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="@Url.Action("Crear", "Producto")" class="btn btn-primary">Crear Producto</a>

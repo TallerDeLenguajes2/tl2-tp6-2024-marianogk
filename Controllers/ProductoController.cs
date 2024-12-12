@@ -2,10 +2,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
 
-[ApiController]
-[Route("api/[controller]")]
+// [ApiController]
+// [Route("api/[controller]")]
 
-public class ProductoController : ControllerBase
+public class ProductoController : Controller
 {
     private ILogger<ProductoController> _logger;
     private ProductoRepository _productoRepository;
@@ -16,42 +16,57 @@ public class ProductoController : ControllerBase
         _productoRepository = productoRepository;
     }
 
-    [HttpGet("/api/Producto")]
-    public ActionResult<List<Producto>> ListarProductos()
+    [HttpGet]
+    public ActionResult Index()
     {
         var productos = _productoRepository.ListarProductos();
-        return Ok(productos);
+        return View(productos);
+    }
+
+    [HttpGet]
+    public ActionResult Crear()
+    {
+        return View();
     }
 
     [HttpPost]
-    public ActionResult CrearProducto([FromBody] Producto producto)
+    public ActionResult Crear(Producto producto)
     {
-        if (producto == null) return BadRequest("El producto es inválido.");
+        if (!ModelState.IsValid)
+        {
+            return View(producto);
+        }
 
         _productoRepository.Insert(producto);
-        return CreatedAtAction(nameof(CrearProducto), producto);
+        return RedirectToAction("Index");
     }
 
-    [HttpPut("{idProducto}")]
-    public ActionResult ModificarProducto(int idProducto, [FromBody] Producto producto)
+    [HttpGet("Editar/{idProducto}")]
+    public ActionResult Editar(int idProducto)
     {
-        if (producto == null) return BadRequest("El producto es inválido.");
+        var producto = _productoRepository.FindById(idProducto);
+        if (producto == null) return NotFound();
 
-        var buscado = _productoRepository.FindById(idProducto);
-        if (buscado == null) return NotFound($"No se encontró el producto con ID {idProducto}.");
+        return View(producto);
+    }
+
+    [HttpPost("Editar/{idProducto}")]
+    public ActionResult Editar(int idProducto, Producto producto)
+    {
+        if (!ModelState.IsValid)
+        {
+            return View(producto);
+        }
 
         _productoRepository.Update(producto, idProducto);
-        return NoContent();
+        return RedirectToAction("Index");
     }
 
-    [HttpDelete("{idProducto}")]
-    public ActionResult EliminarProducto(int idProducto)
+    [HttpDelete("Eliminar/{idProducto}")]
+    public ActionResult Eliminar(int idProducto)
     {
-        var buscado = _productoRepository.FindById(idProducto);
-        if (buscado == null) return NotFound($"No se encontró el producto con ID {idProducto}.");
-
         _productoRepository.Delete(idProducto);
-        return NoContent();
+        return RedirectToAction("Index");
     }
 
 }
