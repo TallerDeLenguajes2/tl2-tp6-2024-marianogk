@@ -2,8 +2,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
 
-// [ApiController]
-// [Route("Presupuesto")]
 
 public class PresupuestoController : Controller
 {
@@ -26,14 +24,14 @@ public class PresupuestoController : Controller
     }
 
     // get crear presupuesto
-    [HttpGet("Crear")]
+    [HttpGet("Presupuesto/Crear")]
     public ActionResult Crear()
     {
         return View();
     }
 
     // post crear presupuesto
-    [HttpPost("Crear")]
+    [HttpPost("Presupuesto/Crear")]
     public IActionResult Crear(Presupuesto presupuesto)
     {
         if (!ModelState.IsValid)
@@ -46,7 +44,7 @@ public class PresupuestoController : Controller
     }
 
     // mostrar presupuesto a editar
-    [HttpGet("Editar/{idPresupuesto}")]
+    [HttpGet("Presupuesto/Editar/{idPresupuesto}")]
     public ActionResult Editar(int idPresupuesto)
     {
 
@@ -57,7 +55,7 @@ public class PresupuestoController : Controller
     }
 
     // mostrar presupuesto a editar
-    [HttpPost("Editar/{idPresupuesto}")]
+    [HttpPost("Presupuesto/Editar/{idPresupuesto}")]
     public ActionResult Editar(int idPresupuesto, Presupuesto presupuesto)
     {
         if (!ModelState.IsValid)
@@ -70,7 +68,7 @@ public class PresupuestoController : Controller
 
     }
 
-    [HttpDelete("Eliminar/{idPresupuesto}")]
+    [HttpDelete("Presupuesto/Eliminar/{idPresupuesto}")]
     public ActionResult Eliminar(int idPresupuesto)
     {
         _presupuestoRepository.Delete(idPresupuesto);
@@ -78,7 +76,7 @@ public class PresupuestoController : Controller
     }
 
     // get agregar producto
-    [HttpGet("{idPresupuesto}/Producto")]
+    [HttpGet("Presupuesto/{idPresupuesto}/Producto")]
     public ActionResult<Presupuesto> AgregarProducto(int idPresupuesto)
     {
         var presupuesto = _presupuestoRepository.FindById(idPresupuesto);
@@ -92,7 +90,7 @@ public class PresupuestoController : Controller
     }
 
     // post agregar producto
-    [HttpPost("{idPresupuesto}/Producto")]
+    [HttpPost("Presupuesto/{idPresupuesto}/Producto")]
     public ActionResult<Presupuesto> AgregarProducto(int idPresupuesto, int idProducto, int cantidad)
     {
         var presupuesto = _presupuestoRepository.FindById(idPresupuesto);
@@ -109,7 +107,7 @@ public class PresupuestoController : Controller
     }
 
     //mostrar presupuestos con productos
-    [HttpGet("{idPresupuesto}/Detalles")]
+    [HttpGet("Presupuesto/{idPresupuesto}/Detalles")]
     public IActionResult VerPresupuestoConProductos(int idPresupuesto)
     {
         var presupuesto = _presupuestoRepository.FindById(idPresupuesto); // Método que incluye productos

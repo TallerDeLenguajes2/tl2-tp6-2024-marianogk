@@ -2,8 +2,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
 
-// [ApiController]
-// [Route("api/[controller]")]
 
 public class ProductoController : Controller
 {
@@ -41,7 +39,7 @@ public class ProductoController : Controller
         return RedirectToAction("Index");
     }
 
-    [HttpGet("Editar/{idProducto}")]
+    [HttpGet("Producto/Editar/{idProducto}")]
     public ActionResult Editar(int idProducto)
     {
         var producto = _productoRepository.FindById(idProducto);
@@ -50,7 +48,7 @@ public class ProductoController : Controller
         return View(producto);
     }
 
-    [HttpPost("Editar/{idProducto}")]
+    [HttpPost("Producto/Editar/{idProducto}")]
     public ActionResult Editar(int idProducto, Producto producto)
     {
         if (!ModelState.IsValid)
@@ -62,11 +60,19 @@ public class ProductoController : Controller
         return RedirectToAction("Index");
     }
 
-    [HttpDelete("Eliminar/{idProducto}")]
+    [HttpGet("Producto/Eliminar/{idProducto}")]
     public ActionResult Eliminar(int idProducto)
+    {
+        var producto = _productoRepository.FindById(idProducto);
+        if (producto == null) return NotFound();
+
+        return View(producto);
+    }
+
+    [HttpPost("Producto/Eliminar/{idProducto}")]
+    public ActionResult ConfirmarEliminar(int idProducto)
     {
         _productoRepository.Delete(idProducto);
         return RedirectToAction("Index");
     }
-
 }
