@@ -1,5 +1,14 @@
 var builder = WebApplication.CreateBuilder(args);
 
+// Registrar la cadena de conexión de la base de datos
+builder.Services.AddSingleton<string>("Data Source=db/Tienda.db"); // o tu cadena de conexión
+
+// Registrar ProductoRepository
+builder.Services.AddTransient<ProductoRepository>();
+
+// Registrar PresupuestoRepository
+builder.Services.AddTransient<PresupuestoRepository>();
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
