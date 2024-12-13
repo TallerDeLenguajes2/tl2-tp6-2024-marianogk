@@ -68,8 +68,17 @@ public class PresupuestoController : Controller
 
     }
 
-    [HttpDelete("Presupuesto/Eliminar/{idPresupuesto}")]
+    [HttpGet("Presupuesto/Eliminar/{idPresupuesto}")]
     public ActionResult Eliminar(int idPresupuesto)
+    {
+        var presupuesto = _presupuestoRepository.FindById(idPresupuesto);
+        if (presupuesto == null) return NotFound();
+
+        return View(presupuesto);
+    }
+
+    [HttpPost("Presupuesto/Eliminar/{idProducto}")]
+    public ActionResult ConfirmarEliminar(int idPresupuesto)
     {
         _presupuestoRepository.Delete(idPresupuesto);
         return RedirectToAction("Index");

@@ -22,7 +22,7 @@ public class ProductoRepository : IRepositoryP
 
             connection.Open();
             command.ExecuteNonQuery();
-            // connection.Close();
+            
         }
     }
 
@@ -39,7 +39,7 @@ public class ProductoRepository : IRepositoryP
 
             connection.Open();
             command.ExecuteNonQuery();
-            // connection.Close();
+            
         }
     }
     public List<Producto> ListarProductos()
@@ -65,7 +65,7 @@ public class ProductoRepository : IRepositoryP
 
                 }
             }
-            // connection.Close();
+            
         }
         return productos;
     }
@@ -92,7 +92,7 @@ public class ProductoRepository : IRepositoryP
                     return producto;
                 }
             }
-            // connection.Close();
+            
         }
         return null;
     }
@@ -109,11 +109,10 @@ public class ProductoRepository : IRepositoryP
 
             connection.Open();
             command.ExecuteNonQuery();
-            // connection.Close();
+            
         }
 
     }
-
 
 }
 

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class PresupuestoRepository : IRepositoryR
 {
-    private readonly string cadenaConexion= "Data Source=db/Tienda.db";
+    private readonly string cadenaConexion = "Data Source=db/Tienda.db";
 
     public PresupuestoRepository(string connectionString)
     {
@@ -12,12 +12,16 @@ public class PresupuestoRepository : IRepositoryR
     }
     public void Insert(Presupuesto presupuesto)
     {
-        var queryString = @"INSERT INTO Presupuestos(NombreDestinatario) VALUES (@NombreDestinatario);";
+        var queryString = @"INSERT INTO Presupuestos(NombreDestinatario, FechaCreacion) VALUES (@NombreDestinatario, @FechaCreacion);";
 
         using (SqliteConnection connection = new SqliteConnection(cadenaConexion))
         {
             SqliteCommand command = new SqliteCommand(queryString, connection);
+            DateTime fechaHoy = DateTime.Today;
+
+        
             command.Parameters.AddWithValue("@NombreDestinatario", presupuesto.NombreDestinatario);
+            command.Parameters.AddWithValue("@FechaCreacion", fechaHoy);
 
             connection.Open();
             command.ExecuteNonQuery();
