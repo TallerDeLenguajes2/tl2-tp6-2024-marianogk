@@ -15,6 +15,7 @@
             @foreach (var producto in ViewBag.Productos as List<Producto>)
             {
                 <option value="@producto.IdProducto">@producto.Descripcion</option>
+                <option value="@producto.IdProducto">@producto.Precio.ToString()</option>
             }
         </select>
     </div>
@@ -25,4 +26,5 @@
     </div>
 
     <button type="submit" class="btn btn-primary">Agregar Producto</button>
+<a href="@Url.Action("VerPresupuestoConProductos", new { idPresupuesto = Model.IdPresupuesto })" class="btn btn-secondary">Cancelar</a>
 </form>

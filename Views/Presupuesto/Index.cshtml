@@ -11,6 +11,7 @@
         <tr>
             <th>Id</th>
             <th>Nombre Destinatario</th>
+            <th>Fecha Creación</th>
             <th>Acciones</th>
         </tr>
     </thead>
@@ -21,8 +22,15 @@
                 <td>@presupuesto.IdPresupuesto</td>
                 <td>@presupuesto.NombreDestinatario</td>
                 <td>
-                    <a href="@Url.Action("Editar", "Presupuesto", new { idPresupuesto = presupuesto.IdPresupuesto })">Editar</a> |
-                    <a href="@Url.Action("Eliminar", "Presupuesto", new { idPresupuesto = presupuesto.IdPresupuesto })">Eliminar</a>
+                    <a href="@Url.Action("Detalles", "Presupuesto", new { idPresupuesto = presupuesto.IdPresupuesto })"
+                        class="btn btn-info">Ver Detalles</a>
+                    <a href="@Url.Action("AgregarProducto", "Presupuesto", new { idPresupuesto = presupuesto.IdPresupuesto })"
+                        class="btn btn-success">Agregar Producto</a>
+                    <a
+                        href="@Url.Action("Editar", "Presupuesto", new { idPresupuesto = presupuesto.IdPresupuesto })">Editar</a>
+                    |
+                    <a
+                        href="@Url.Action("Eliminar", "Presupuesto", new { idPresupuesto = presupuesto.IdPresupuesto })">Eliminar</a>
                 </td>
             </tr>
         }

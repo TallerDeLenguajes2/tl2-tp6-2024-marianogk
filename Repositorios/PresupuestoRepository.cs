@@ -19,7 +19,7 @@ public class PresupuestoRepository : IRepositoryR
             SqliteCommand command = new SqliteCommand(queryString, connection);
             DateTime fechaHoy = DateTime.Today;
 
-        
+
             command.Parameters.AddWithValue("@NombreDestinatario", presupuesto.NombreDestinatario);
             command.Parameters.AddWithValue("@FechaCreacion", fechaHoy);
 
@@ -96,6 +96,17 @@ public class PresupuestoRepository : IRepositoryR
 
     public void Delete(int idPresupuesto)
     {
+        var queryDeleteProductos = "DELETE FROM PresupuestosDetalle WHERE IdPresupuesto = @idPresupuesto";
+
+        using (var connection = new SqliteConnection(cadenaConexion))
+        {
+            var command = new SqliteCommand(queryDeleteProductos, connection);
+            command.Parameters.AddWithValue("@idPresupuesto", idPresupuesto);
+
+            connection.Open();
+            command.ExecuteNonQuery();
+        }
+
         var queryString = @"DELETE FROM Presupuestos WHERE idPresupuesto = @idPresupuesto;";
 
         using (SqliteConnection connection = new SqliteConnection(cadenaConexion))
@@ -111,7 +122,7 @@ public class PresupuestoRepository : IRepositoryR
 
     public void AgregarProductoAPresupuesto(int idPresupuesto, Producto producto, int cantidad)
     {
-        var queryString = @"INSERT INTO PresupuestoDetalle (idPresupuesto, idProducto, Cantidad) 
+        var queryString = @"INSERT INTO PresupuestosDetalle (idPresupuesto, idProducto, Cantidad) 
                         VALUES (@idPresupuesto, @idProducto, @Cantidad);";
 
         using (SqliteConnection connection = new SqliteConnection(cadenaConexion))

@@ -86,7 +86,7 @@ public class PresupuestoController : Controller
 
     // get agregar producto
     [HttpGet("Presupuesto/{idPresupuesto}/Producto")]
-    public ActionResult<Presupuesto> AgregarProducto(int idPresupuesto)
+    public IActionResult AgregarProducto(int idPresupuesto)
     {
         var presupuesto = _presupuestoRepository.FindById(idPresupuesto);
         if (presupuesto == null)
@@ -100,7 +100,7 @@ public class PresupuestoController : Controller
 
     // post agregar producto
     [HttpPost("Presupuesto/{idPresupuesto}/Producto")]
-    public ActionResult<Presupuesto> AgregarProducto(int idPresupuesto, int idProducto, int cantidad)
+    public IActionResult AgregarProducto(int idPresupuesto, int idProducto, int cantidad)
     {
         var presupuesto = _presupuestoRepository.FindById(idPresupuesto);
         var producto = _productoRepository.FindById(idProducto);
@@ -110,14 +110,21 @@ public class PresupuestoController : Controller
             return NotFound($"No se encontró el producto con ID {producto.IdProducto}.");
         }
 
+        if (cantidad <= 0)
+        {
+            ModelState.AddModelError("", "La cantidad debe ser mayor a 0.");
+            ViewBag.Productos = _productoRepository.ListarProductos();
+            return View(presupuesto);
+        }
+
         _presupuestoRepository.AgregarProductoAPresupuesto(idPresupuesto, producto, cantidad);
 
-        return RedirectToAction("VerPresupuestoConProductos", new { idPresupuesto });
+        return RedirectToAction("Detalles", new { idPresupuesto });
     }
 
     //mostrar presupuestos con productos
     [HttpGet("Presupuesto/{idPresupuesto}/Detalles")]
-    public IActionResult VerPresupuestoConProductos(int idPresupuesto)
+    public IActionResult Detalles(int idPresupuesto)
     {
         var presupuesto = _presupuestoRepository.FindById(idPresupuesto); // Método que incluye productos
         if (presupuesto == null)

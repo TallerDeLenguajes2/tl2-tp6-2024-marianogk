@@ -9,79 +9,79 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = tl2_tp6_2024_marianogk
 build_property.RootNamespace = tl2_tp6_2024_marianogk
-build_property.ProjectDir = C:\taller2\tl2-tp6-2024-marianogk\
+build_property.ProjectDir = C:\Users\maria\Downloads\tl2-tp6-2024-marianogk-main\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\taller2\tl2-tp6-2024-marianogk
+build_property.MSBuildProjectDirectory = C:\Users\maria\Downloads\tl2-tp6-2024-marianogk-main
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/taller2/tl2-tp6-2024-marianogk/Views/Home/Index.cshtml]
+[C:/Users/maria/Downloads/tl2-tp6-2024-marianogk-main/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/taller2/tl2-tp6-2024-marianogk/Views/Home/Privacy.cshtml]
+[C:/Users/maria/Downloads/tl2-tp6-2024-marianogk-main/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/taller2/tl2-tp6-2024-marianogk/Views/Presupuesto/AgregarProducto.cshtml]
+[C:/Users/maria/Downloads/tl2-tp6-2024-marianogk-main/Views/Presupuesto/AgregarProducto.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJlc3VwdWVzdG9cQWdyZWdhclByb2R1Y3RvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/taller2/tl2-tp6-2024-marianogk/Views/Presupuesto/Crear.cshtml]
+[C:/Users/maria/Downloads/tl2-tp6-2024-marianogk-main/Views/Presupuesto/Crear.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJlc3VwdWVzdG9cQ3JlYXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/taller2/tl2-tp6-2024-marianogk/Views/Presupuesto/Editar.cshtml]
+[C:/Users/maria/Downloads/tl2-tp6-2024-marianogk-main/Views/Presupuesto/Detalles.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJlc3VwdWVzdG9cRGV0YWxsZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/maria/Downloads/tl2-tp6-2024-marianogk-main/Views/Presupuesto/Editar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJlc3VwdWVzdG9cRWRpdGFyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/taller2/tl2-tp6-2024-marianogk/Views/Presupuesto/Eliminar.cshtml]
+[C:/Users/maria/Downloads/tl2-tp6-2024-marianogk-main/Views/Presupuesto/Eliminar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJlc3VwdWVzdG9cRWxpbWluYXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/taller2/tl2-tp6-2024-marianogk/Views/Presupuesto/Index.cshtml]
+[C:/Users/maria/Downloads/tl2-tp6-2024-marianogk-main/Views/Presupuesto/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJlc3VwdWVzdG9cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/taller2/tl2-tp6-2024-marianogk/Views/Presupuesto/VerPresupuestosConProductos.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJlc3VwdWVzdG9cVmVyUHJlc3VwdWVzdG9zQ29uUHJvZHVjdG9zLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/taller2/tl2-tp6-2024-marianogk/Views/Producto/Crear.cshtml]
+[C:/Users/maria/Downloads/tl2-tp6-2024-marianogk-main/Views/Producto/Crear.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9cQ3JlYXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/taller2/tl2-tp6-2024-marianogk/Views/Producto/Editar.cshtml]
+[C:/Users/maria/Downloads/tl2-tp6-2024-marianogk-main/Views/Producto/Editar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9cRWRpdGFyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/taller2/tl2-tp6-2024-marianogk/Views/Producto/Eliminar.cshtml]
+[C:/Users/maria/Downloads/tl2-tp6-2024-marianogk-main/Views/Producto/Eliminar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9cRWxpbWluYXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/taller2/tl2-tp6-2024-marianogk/Views/Producto/Index.cshtml]
+[C:/Users/maria/Downloads/tl2-tp6-2024-marianogk-main/Views/Producto/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/taller2/tl2-tp6-2024-marianogk/Views/Shared/Error.cshtml]
+[C:/Users/maria/Downloads/tl2-tp6-2024-marianogk-main/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/taller2/tl2-tp6-2024-marianogk/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/maria/Downloads/tl2-tp6-2024-marianogk-main/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/taller2/tl2-tp6-2024-marianogk/Views/_ViewImports.cshtml]
+[C:/Users/maria/Downloads/tl2-tp6-2024-marianogk-main/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/taller2/tl2-tp6-2024-marianogk/Views/_ViewStart.cshtml]
+[C:/Users/maria/Downloads/tl2-tp6-2024-marianogk-main/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/taller2/tl2-tp6-2024-marianogk/Views/Shared/_Layout.cshtml]
+[C:/Users/maria/Downloads/tl2-tp6-2024-marianogk-main/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-nnk2clv68w
