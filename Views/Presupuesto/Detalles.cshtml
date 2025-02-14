@@ -18,9 +18,8 @@
         </tr>
     </thead>
     <tbody>
-        @if (Model.Detalles != null && Model.Detalles.Any())
-        {
-            foreach (var detalle in Model.Detalles)
+
+            @foreach (var detalle in Model.Detalles)
             {
                 <tr>
                     <td>@detalle.Producto.Descripcion</td>
@@ -29,13 +28,8 @@
                     <td>@(detalle.Cantidad * detalle.Producto.Precio)</td>
                 </tr>
             }
-        }
-        else
-        {
-            <tr>
-                <td colspan="4">No hay productos asociados a este presupuesto.</td>
-            </tr>
-        }
+        
+
     </tbody>
 </table>
 

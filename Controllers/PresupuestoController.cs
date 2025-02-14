@@ -1,3 +1,4 @@
+using EspacioPresupuestoDetalle;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
@@ -117,7 +118,7 @@ public class PresupuestoController : Controller
             return View(presupuesto);
         }
 
-        _presupuestoRepository.AgregarProductoAPresupuesto(idPresupuesto, producto, cantidad);
+        _presupuestoRepository.AgregarProductoAPresupuesto(idPresupuesto, idProducto, cantidad);
 
         return RedirectToAction("Detalles", new { idPresupuesto });
     }
@@ -130,6 +131,11 @@ public class PresupuestoController : Controller
         if (presupuesto == null)
         {
             return NotFound($"No se encontró el presupuesto con ID {idPresupuesto}.");
+        }
+
+        if (presupuesto.Detalles == null)
+        {
+            presupuesto.Detalles = new List<PresupuestoDetalle>();
         }
 
         return View(presupuesto);

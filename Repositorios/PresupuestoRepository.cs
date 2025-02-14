@@ -1,3 +1,4 @@
+using EspacioPresupuestoDetalle;
 using Microsoft.Data.Sqlite;
 using System;
 using System.Collections.Generic;
@@ -5,7 +6,6 @@ using System.Collections.Generic;
 public class PresupuestoRepository : IRepositoryR
 {
     private readonly string cadenaConexion = "Data Source=db/Tienda.db";
-
     public PresupuestoRepository(string connectionString)
     {
         cadenaConexion = connectionString;
@@ -69,7 +69,10 @@ public class PresupuestoRepository : IRepositoryR
     }
     public Presupuesto FindById(int idPresupuesto)
     {
-        var queryString = @"SELECT * FROM Presupuestos WHERE idPresupuesto = @idPresupuesto;";
+        var queryString = @"SELECT * FROM Presupuestos p
+        LEFT JOIN PresupuestosDetalle d ON p.idPresupuesto = d.idPresupuesto
+        LEFT JOIN Productos prod ON d.idProducto = prod.idProducto
+        WHERE p.idPresupuesto = @idPresupuesto;";
 
         using (SqliteConnection connection = new SqliteConnection(cadenaConexion))
         {
@@ -81,16 +84,35 @@ public class PresupuestoRepository : IRepositoryR
 
             using (SqliteDataReader reader = command.ExecuteReader())
             {
-                if (reader.Read())
+                Presupuesto presupuesto = null;
+                while (reader.Read())
                 {
-                    Presupuesto presupuesto = new Presupuesto();
-                    presupuesto.IdPresupuesto = Convert.ToInt32(reader["idPresupuesto"]);
-                    presupuesto.NombreDestinatario = reader["NombreDestinatario"].ToString();
-                    return presupuesto;
+                    if (presupuesto == null)
+                    {
+                        presupuesto = new Presupuesto
+                        {
+                            IdPresupuesto = Convert.ToInt32(reader["idPresupuesto"]),
+                            NombreDestinatario = reader["NombreDestinatario"].ToString(),
+                            Detalles = new List<PresupuestoDetalle>()
+                        };
+                    }
+                    // Si hay detalles, agregarlos
+                    if (!reader.IsDBNull(reader.GetOrdinal("idProducto")))
+                    {
+                        var producto = new Producto
+                        {
+                            IdProducto = Convert.ToInt32(reader["idProducto"]),
+                            Descripcion = reader["Descripcion"].ToString(),
+                            Precio = Convert.ToInt32(reader["Precio"])
+                        };
+
+                        var detalle = new PresupuestoDetalle(producto, Convert.ToInt32(reader["Cantidad"]));
+                        presupuesto.Detalles.Add(detalle);
+                    }
                 }
+                return presupuesto;
             }
         }
-        return null;
     }
 
 
@@ -120,7 +142,7 @@ public class PresupuestoRepository : IRepositoryR
 
     }
 
-    public void AgregarProductoAPresupuesto(int idPresupuesto, Producto producto, int cantidad)
+    public void AgregarProductoAPresupuesto(int idPresupuesto, int idProducto, int cantidad)
     {
         var queryString = @"INSERT INTO PresupuestosDetalle (idPresupuesto, idProducto, Cantidad) 
                         VALUES (@idPresupuesto, @idProducto, @Cantidad);";
@@ -129,14 +151,13 @@ public class PresupuestoRepository : IRepositoryR
         {
             SqliteCommand command = new SqliteCommand(queryString, connection);
             command.Parameters.AddWithValue("@idPresupuesto", idPresupuesto);
-            command.Parameters.AddWithValue("@idProducto", producto.IdProducto);
+            command.Parameters.AddWithValue("@idProducto", idProducto);
             command.Parameters.AddWithValue("@Cantidad", cantidad);
 
             connection.Open();
             command.ExecuteNonQuery();
         }
     }
-
 }
 public interface IRepositoryR
 {
@@ -145,5 +166,5 @@ public interface IRepositoryR
     List<Presupuesto> ListarPresupuestos();
     Presupuesto FindById(int idPresupuesto);
     void Delete(int idPresupuesto);
-    public void AgregarProductoAPresupuesto(int idPresupuesto, Producto producto, int cantidad);
+    public void AgregarProductoAPresupuesto(int idPresupuesto, int idProducto, int cantidad);
 }

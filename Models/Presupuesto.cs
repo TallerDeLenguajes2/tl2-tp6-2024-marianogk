@@ -4,7 +4,7 @@ public class Presupuesto
     private List<PresupuestoDetalle> detalles;
     public int IdPresupuesto { get; set; }
     public string NombreDestinatario { get; set; }
-    public List<PresupuestoDetalle> Detalles { get => detalles; }
+    public List<PresupuestoDetalle> Detalles { get ; set;}
     public Presupuesto()
     {
         detalles = new List<PresupuestoDetalle>();

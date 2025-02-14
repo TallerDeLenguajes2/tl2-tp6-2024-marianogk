@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "JHx5kSAcX4s=",
+  "dgSpecHash": "mdNtSEJCTdQ=",
   "success": true,
-  "projectFilePath": "C:\\Users\\maria\\Downloads\\tl2-tp6-2024-marianogk-main\\tl2-tp6-2024-marianogk.csproj",
+  "projectFilePath": "C:\\taller2\\tl2-tp6-2024-marianogk\\tl2-tp6-2024-marianogk.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\maria\\.nuget\\packages\\microsoft.data.sqlite\\9.0.0\\microsoft.data.sqlite.9.0.0.nupkg.sha512",
     "C:\\Users\\maria\\.nuget\\packages\\microsoft.data.sqlite.core\\9.0.0\\microsoft.data.sqlite.core.9.0.0.nupkg.sha512",

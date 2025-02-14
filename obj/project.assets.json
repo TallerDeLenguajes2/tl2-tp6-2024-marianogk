@@ -337,11 +337,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\maria\\Downloads\\tl2-tp6-2024-marianogk-main\\tl2-tp6-2024-marianogk.csproj",
+      "projectUniqueName": "C:\\taller2\\tl2-tp6-2024-marianogk\\tl2-tp6-2024-marianogk.csproj",
       "projectName": "tl2-tp6-2024-marianogk",
-      "projectPath": "C:\\Users\\maria\\Downloads\\tl2-tp6-2024-marianogk-main\\tl2-tp6-2024-marianogk.csproj",
+      "projectPath": "C:\\taller2\\tl2-tp6-2024-marianogk\\tl2-tp6-2024-marianogk.csproj",
       "packagesPath": "C:\\Users\\maria\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\maria\\Downloads\\tl2-tp6-2024-marianogk-main\\obj\\",
+      "outputPath": "C:\\taller2\\tl2-tp6-2024-marianogk\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\maria\\AppData\\Roaming\\NuGet\\NuGet.Config"
